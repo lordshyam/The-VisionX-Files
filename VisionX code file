@@ -1,0 +1,81 @@
+import RPi.GPIO as GPIO
+import os
+from PIL import Image
+import google.generativeai as genai
+from gtts import gTTS
+from pydub import AudioSegment
+from pydub.playback import play
+import tempfile
+
+# Gemini API Key Configuration
+genai.configure(api_key="YOUR_GEMINI_API_KEY")
+model = genai.GenerativeModel(model_name="gemini-1.5-pro")
+
+# GPIO Setup for Button
+BUTTON_PIN = 22  # GPIO pin where button is connected
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+# Image Path
+image_path = "/home/sashwath/Desktop/captured_image.jpg"
+
+# Function to Capture Image
+def capture_image():
+    print("Capturing image...")
+    os.system(f"libcamera-jpeg -o {image_path}")
+    print("Image captured.")
+
+# Function to Process Image with Gemini AI
+def process_image_with_gemini(image_path):
+    print("Processing image with Gemini...")
+    try:
+        img = Image.open(image_path)
+        prompt = "Describe the contents of this image in detail. If there is text, read it accurately."
+        response = model.generate_content([prompt, img])
+        explanation = response.text
+        print("AI Explanation:")
+        print(explanation)
+
+        # Convert AI Response to Speech
+        convert_text_to_speech(explanation)
+    except Exception as e:
+        print(f"Error during processing: {e}")
+
+# Function to Convert Text to Speech and Play it
+def convert_text_to_speech(text):
+    try:
+        print("Converting AI response to speech...")
+        tts = gTTS(text=text, lang="en")
+
+        # Save as a Temporary File
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as temp_file:
+            tts.save(temp_file.name)
+            temp_file_name = temp_file.name
+        
+        # Play the Audio
+        audio = AudioSegment.from_file(temp_file_name, format="mp3")
+        print("Playing audio...")
+        play(audio)
+
+        # Cleanup Temporary File
+        os.remove(temp_file_name)
+    except Exception as e:
+        print(f"Error during text-to-speech conversion: {e}")
+
+# Announce Device is On
+convert_text_to_speech("Vision X switched on.")
+
+# Main Loop to Detect Button Press
+try:
+    print("Waiting for button press...")
+    while True:
+        if GPIO.input(BUTTON_PIN) == GPIO.LOW:  # Button Press Detected
+            print("Button pressed!")
+            capture_image()
+            process_image_with_gemini(image_path)
+            GPIO.cleanup()
+            break  # Ends after one execution for testing
+except KeyboardInterrupt:
+    print("Program terminated.")
+finally:
+    GPIO.cleanup()
