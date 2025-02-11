@@ -6,13 +6,21 @@ Note: This text was written completely by Shyam and Sashwath, and looks like it 
 
 Table of Contents:
 Problem Statement
+
 Solution
+
 Features
+
 Hardware
+
 3D Design
+
 Software
+
 Future Enhancements
+
 Gallery
+
 
 Problem Statement:
 UNSDG GOAL GOAL - QUALITY EDUCATION FOR ALL
@@ -20,6 +28,7 @@ People with disabilities, specifically those with visual impairment, autism and 
 Problems Faced By The Visually Impaired:
 Braille text is not available everywhere, which not only deprives the blind of learning opportunities, but makes it harder for them to navigate through their surroundings as well. Braille textbooks are expensive, which is another problem. To integrate blind people into society, they should be empowered to read from normal textbooks.
 Also, since they are blind, they face difficulty in everyday life, while perceiving the world around them, in the form of objects, text, images and also just moving around in general.
+
 
 Features: 
 This product has multiple features which makes it adaptable for many people in different situations. 
