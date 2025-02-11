@@ -5,6 +5,7 @@ By Shyam and Sashwath
 Note: This text was written completely by Shyam and Sashwath, and looks like it was written by AI only because of the formatting.
 
 Table of Contents:
+
 Problem Statement
 
 Solution
@@ -23,9 +24,13 @@ Gallery
 
 
 Problem Statement:
+
 UNSDG GOAL GOAL - QUALITY EDUCATION FOR ALL
 People with disabilities, specifically those with visual impairment, autism and dyslexia face problems while learning. Most educational materials aren’t made for children with these disabilities.
+
+
 Problems Faced By The Visually Impaired:
+
 Braille text is not available everywhere, which not only deprives the blind of learning opportunities, but makes it harder for them to navigate through their surroundings as well. Braille textbooks are expensive, which is another problem. To integrate blind people into society, they should be empowered to read from normal textbooks.
 Also, since they are blind, they face difficulty in everyday life, while perceiving the world around them, in the form of objects, text, images and also just moving around in general.
 
@@ -38,6 +43,7 @@ Another point which is of importance, is that it can be used to navigate. If a s
 The product has a wide-angle camera, which allows the camera to recognise text on a wide range, opening the door to a variety of learning opportunities. This efficiently integrates our users into society.
 Also, the product’s audio can be connected to a variety of bluetooth devices 
 
+
 Future Enhancements :
 
 All great machines have room for improvement. Nothing is without its faults. Our team has high hopes for VisionX and has multiple enhancements in mind. 
@@ -48,21 +54,31 @@ Grasping concepts at first glance is a talent that only a select few students (o
 
 
 Hardware:
+
 The hardware of the device comprises of 3 main components, 
 Raspberry Pi
+
 PiCamera Module
+
 Button
+
 Power Source
+
 The Raspberry Pi is the heart of the device, and holds all the software and python code. Once the button is pressed, it starts a series of actions, and the camera captures a picture, which is then processed by the AI. To power the RaspberryPi we used a portable and rechargeable power source.
 
+
 3D-design:
+
 The outer covering of our product was designed using Tinkercad, a software used to create 3D designs.The device was made so that it is portable, it can be locked and easily opened and it is easy to use with just a click of a button.We then send it to a 3D printing company and got it printed in a way that the case holds all the hardware.
 
+
 Software:
+
 This was the strenuous stage of the building process. The raspberry pi supports multiple languages, and we used python and windows terminal for commands. Using python programming, we made a programme that was linked with the API of an AI. Once the button was clicked, an image was saved in the storage unit of the RaspberryPi, from there the path of the image was sent to the AI, which was then prompted to explain the contents of the image in a descriptive way.
 
 
 Solution:
+
 Our novel product would help millions of visually impaired and dyslexic people to learn the same things as those without disabilities, without the hassle of reading braille .Our project scans text on paper or the surrounding areas, objects and images and uses Gemini’s API to explain in detail what it has scanned through an audio source, all with just a press of a button .This device is easy to carry and use,  helps the blind to easily navigate through the challenges of text in paper.
 
 
